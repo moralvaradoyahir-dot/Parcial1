@@ -5,7 +5,7 @@ const loginBtn = document.getElementById("loginBtn");
 const passwordInput = document.getElementById("password");
 const errorMsg = document.getElementById("errorMsg");
 
-const PASSWORD = "web1234"; // Contraseña con letras y números
+const PASSWORD = "WEB12679"; // Contraseña con letras y números
 
 loginBtn.addEventListener("click", () => {
   if (passwordInput.value === PASSWORD) {

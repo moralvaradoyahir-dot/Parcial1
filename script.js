@@ -1,6 +1,5 @@
-// --- CONTRASEÑA DE ACCESO -- 
-const PASSWORD "13245"
-const contraseñaCorrecta = "13245";
+// --- CONTRASEÑA DE ACCESO --- 
+const PASSWORD = "13245"; // CORRECCIÓN: falta el '='
 const loginBtn = document.getElementById("login-btn");
 const loginMsg = document.getElementById("login-msg");
 

@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  background: #4a90e2;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+form {
+  background: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+#preview img {
+  max-width: 150px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#lista-comentarios {
+  margin: 1rem;
+}
+
+.comentario {
+  background: #fff;
+  border-left: 5px solid #4a90e2;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.comentario img {
+  max-width: 100px;
+  border-radius: 8px;
+  display: block;
+  margin-top: 10px;
+}
+
+.boton-borrar {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.like-btn {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.like-btn.liked {
+  background: #27ae60;
+}
+
+/* Estilo especial para el último post */
+.ultimo-post {
+  background: #ffefc1;
+  border: 2px solid #f5b041;
+  font-style: italic;
+}
+
+/* Login */
+.login-container {
+  text-align: center;
+  margin-top: 100px;
+}

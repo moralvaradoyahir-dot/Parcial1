@@ -2,40 +2,45 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Blog</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Acceso con contraseña -->
-  <div id="login-section">
-    <h2>Ingrese la contraseña para acceder</h2>
-    <input type="password" id="password" placeholder="Contraseña">
-    <button id="login-btn">Entrar</button>
-    <p id="login-msg"></p>
+  <!-- LOGIN -->
+  <div id="login">
+    <h2>Acceso al Blog</h2>
+    <input type="password" id="password" placeholder="Introduce la contraseña">
+    <button id="loginBtn">Entrar</button>
+    <p id="errorMsg"></p>
   </div>
 
-  <!-- Blog -->
-  <div id="blog-section" class="hidden">
-    <h1>Mini Blog</h1>
+  <!-- BLOG -->
+  <div id="blog" class="hidden">
+    <h1>Mi Mini Blog</h1>
 
-    <!-- Formulario de comentarios -->
-    <form id="comment-form">
-      <input type="text" id="name" placeholder="Nombre (mínimo 3 letras)">
-      <textarea id="message" placeholder="Mensaje (máximo 200 caracteres)"></textarea>
-      <input type="file" id="image-input">
-      <img id="preview" class="hidden">
-      <button type="submit">Publicar comentario</button>
+    <!-- FORMULARIO -->
+    <form id="commentForm">
+      <input type="text" id="nombre" placeholder="Tu nombre">
+      <textarea id="mensaje" placeholder="Escribe tu comentario (máx 200 caracteres)"></textarea>
+      <input type="file" id="imagen" accept="image/*">
+      <div id="preview"></div>
+      <button type="submit">Publicar</button>
     </form>
 
-    <div id="comments"></div>
+    <div class="acciones">
+      <button id="borrarTodos">Borrar todos los comentarios</button>
+    </div>
 
-    <!-- Último post diferente -->
-    <div id="final-post">
-      <h2>Importancia del examen práctico</h2>
+    <div id="comentarios"></div>
+
+    <!-- POST FINAL DIFERENTE -->
+    <div id="ultimoPost" class="especial">
+      <h2>La importancia del examen práctico</h2>
       <p>
-        Realizar un examen práctico es fundamental para consolidar tus conocimientos en programación web. No solo permite aplicar la teoría aprendida, sino que también te prepara para desafíos reales en desarrollo de aplicaciones. Este ejercicio refuerza habilidades esenciales, como la manipulación de datos, la interacción con el usuario y la comprensión de estructuras de programación. Continuar tu formación con prácticas sólidas es la base para convertirte en un profesional competente en ingeniería en sistemas computacionales.
+        Realizar un examen práctico es fundamental para consolidar los conocimientos adquiridos en la formación de programación web.
+        Este tipo de evaluación permite aplicar los conceptos aprendidos, mejorar las habilidades técnicas y preparar al estudiante
+        para desafíos reales dentro del campo de la ingeniería en sistemas computacionales.
       </p>
     </div>
   </div>

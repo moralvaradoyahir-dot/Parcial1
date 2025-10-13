@@ -2,48 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Blog</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- LOGIN -->
-  <div id="login">
+  <!-- Sección de acceso -->
+  <section id="login-section">
     <h2>Acceso al Blog</h2>
-    <input type="password" id="password" placeholder="Introduce la contraseña">
-    <button id="loginBtn">Entrar</button>
-    <p id="errorMsg"></p>
-  </div>
+    <input type="password" id="password" placeholder="Ingresa la contraseña">
+    <button id="login-btn">Entrar</button>
+    <p id="login-msg"></p>
+  </section>
 
-  <!-- BLOG -->
-  <div id="blog" class="hidden">
-    <h1>Mi Mini Blog</h1>
+  <!-- Contenido principal -->
+  <main id="blog" class="hidden">
+    <h1>Mini Blog Interactivo</h1>
 
-    <!-- FORMULARIO -->
-    <form id="commentForm">
-      <input type="text" id="nombre" placeholder="Tu nombre">
-      <textarea id="mensaje" placeholder="Escribe tu comentario (máx 200 caracteres)"></textarea>
+    <!-- Formulario -->
+    <form id="comment-form">
+      <input type="text" id="nombre" placeholder="Tu nombre (mínimo 3 letras)" required>
+      <textarea id="mensaje" maxlength="200" placeholder="Escribe tu mensaje (máx. 200 caracteres)" required></textarea>
       <input type="file" id="imagen" accept="image/*">
       <div id="preview"></div>
       <button type="submit">Publicar</button>
+      <button type="button" id="borrar-todos">Borrar todos</button>
     </form>
 
-    <div class="acciones">
-      <button id="borrarTodos">Borrar todos los comentarios</button>
-    </div>
+    <!-- Lista de comentarios -->
+    <section id="comentarios"></section>
 
-    <div id="comentarios"></div>
-
-    <!-- POST FINAL DIFERENTE -->
-    <div id="ultimoPost" class="especial">
-      <h2>La importancia del examen práctico</h2>
+    <!-- Post final -->
+    <article id="post-final">
+      <h2>Importancia de los exámenes prácticos</h2>
       <p>
-        Realizar un examen práctico es fundamental para consolidar los conocimientos adquiridos en la formación de programación web.
-        Este tipo de evaluación permite aplicar los conceptos aprendidos, mejorar las habilidades técnicas y preparar al estudiante
-        para desafíos reales dentro del campo de la ingeniería en sistemas computacionales.
+        Realizar exámenes prácticos en programación web es esencial para fortalecer los conocimientos teóricos y 
+        desarrollar habilidades reales en la solución de problemas. Estas evaluaciones permiten aplicar conceptos 
+        de fundamentos de ingeniería en sistemas computacionales, impulsando una formación sólida y profesional 
+        en el campo tecnológico.
       </p>
-    </div>
-  </div>
+    </article>
+  </main>
 
   <script src="script.js"></script>
 </body>

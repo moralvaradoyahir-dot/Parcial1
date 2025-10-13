@@ -68,6 +68,20 @@ form.addEventListener('submit', (e) => {
   if (message.length > 200) {
     formError.textContent = "El mensaje no puede superar las 200 palabras.";
     return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const nuevoComentario = {
+      nombre,
+      mensaje,
+      imagen: reader.result || "",
+      likes: 0
+    };
+    mostrarComentario(nuevoComentario);
+    guardarComentario(nuevoComentario);
+  };
+
+  if (imagen) reader.readAsDataURL(imagen);
+  else reader.onload();  
   }
 
   comments.push({ name, message, likes: 0 });

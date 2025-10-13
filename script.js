@@ -1,150 +1,98 @@
-// Contraseña
-const PASSWORD = "67859";
-const loginBtn = document.getElementById("login-btn");
-const loginMsg = document.getElementById("login-msg");
+const passwordInput = document.getElementById('password');
+const loginBtn = document.getElementById('login-btn');
+const loginContainer = document.getElementById('login-container');
+const blogContainer = document.getElementById('blog-container');
+const loginError = document.getElementById('login-error');
 
-loginBtn.onclick = () => {
-  const pass = document.getElementById("password").value;
-  if (pass === PASSWORD) {
-    document.getElementById("login-section").classList.add("hidden");
-    document.getElementById("blog").classList.remove("hidden");
+const correctPassword = "1234";
+
+loginBtn.addEventListener('click', () => {
+  if (passwordInput.value === correctPassword) {
+    loginContainer.classList.add('hidden');
+    blogContainer.classList.remove('hidden');
+    loadComments();
   } else {
-    loginMsg.textContent = "Contraseña incorrecta.";
-    loginMsg.style.color = "red";
+    loginError.textContent = "Contraseña incorrecta.";
   }
-};
-
-// Variables
-const form = document.getElementById("comment-form");
-const comentariosDiv = document.getElementById("comentarios");
-const borrarTodosBtn = document.getElementById("borrar-todos");
-const previewDiv = document.getElementById("preview");
-
-// Cargar comentarios guardados
-window.onload = function() {
-  const guardados = JSON.parse(localStorage.getItem("comentarios")) || [];
-  guardados.forEach(c => mostrarComentario(c));
-  agregarComentariosRandom();
-};
-
-// Validar formulario y agregar comentario
-form.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const nombre = document.getElementById("nombre").value.trim();
-  const mensaje = document.getElementById("mensaje").value.trim();
-  const imagen = document.getElementById("imagen").files[0];
-
-  if (nombre.length < 3) {
-    alert("El nombre debe tener al menos 3 caracteres");
-    return;
-  }
-
-  if (mensaje.length > 200) {
-    alert("El mensaje no puede tener más de 200 caracteres");
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = () => {
-    const nuevoComentario = {
-      nombre,
-      mensaje,
-      imagen: reader.result || "",
-      likes: 0
-    };
-    mostrarComentario(nuevoComentario);
-    guardarComentario(nuevoComentario);
-  };
-
-  if (imagen) reader.readAsDataURL(imagen);
-  else reader.onload();
-  
-  form.reset();
-  previewDiv.innerHTML = "";
 });
 
-// Vista previa de imagen
-document.getElementById("imagen").addEventListener("change", e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => {
-    previewDiv.innerHTML = <img src="${reader.result}" alt="Vista previa">;
-  };
-  reader.readAsDataURL(file);
-});
+// Formulario de comentarios
+const form = document.getElementById('comment-form');
+const nameInput = document.getElementById('name');
+const messageInput = document.getElementById('message');
+const formError = document.getElementById('form-error');
+const commentsContainer = document.getElementById('comments');
+const deleteAllBtn = document.getElementById('delete-all');
 
-// Mostrar comentario
-function mostrarComentario(c) {
-  const div = document.createElement("div");
-  div.className = "comentario";
-  div.innerHTML = `
-    <h3>${c.nombre}</h3>
-    <p>${c.mensaje}</p>
-    ${c.imagen ? <img src="${c.imagen}" alt="imagen"> : ""}
-    <button class="like ${c.liked ? "liked" : ""}">❤ ${c.likes || 0}</button>
-    <button class="borrar">🗑 Borrar</button>
-  `;
-  
-  // Botón Me gusta
-  const likeBtn = div.querySelector(".like");
-  likeBtn.onclick = () => {
-    c.likes = (c.likes || 0) + 1;
-    likeBtn.textContent = ❤ ${c.likes};
-    likeBtn.classList.add("liked");
-    actualizarLocalStorage();
-  };
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
 
-  // Borrar comentario
-  div.querySelector(".borrar").onclick = () => {
-    div.remove();
-    eliminarComentario(c);
-  };
-
-  comentariosDiv.appendChild(div);
-}
-
-// Guardar comentario en localStorage
-function guardarComentario(c) {
-  const guardados = JSON.parse(localStorage.getItem("comentarios")) || [];
-  guardados.push(c);
-  localStorage.setItem("comentarios", JSON.stringify(guardados));
-}
-
-function eliminarComentario(c) {
-  let guardados = JSON.parse(localStorage.getItem("comentarios")) || [];
-  guardados = guardados.filter(x => x.mensaje !== c.mensaje);
-  localStorage.setItem("comentarios", JSON.stringify(guardados));
-}
-
-function actualizarLocalStorage() {
-  const todos = [];
-  document.querySelectorAll(".comentario").forEach(div => {
-    todos.push({
-      nombre: div.querySelector("h3").textContent,
-      mensaje: div.querySelector("p").textContent,
-      imagen: div.querySelector("img") ? div.querySelector("img").src : "",
-      likes: parseInt(div.querySelector(".like").textContent.replace("❤ ", ""))
-    });
-  });
-  localStorage.setItem("comentarios", JSON.stringify(todos));
-}
-
-// Borrar todos los comentarios
-borrarTodosBtn.onclick = () => {
-  comentariosDiv.innerHTML = "";
-  localStorage.removeItem("comentarios");
-};
-
-// Comentarios random iniciales
-function agregarComentariosRandom() {
-  if (localStorage.getItem("comentarios")) return;
-  const randoms = [
-    { nombre: "Ana", mensaje: "¡Qué bonito blog!", imagen: "https://picsum.photos/100", likes: 1 },
-    { nombre: "Luis", mensaje: "Muy interesante el contenido.", imagen: "https://picsum.photos/101", likes: 3 },
-    { nombre: "Marta", mensaje: "Me encanta este proyecto.", imagen: "https://picsum.photos/102", likes: 2 }
+// Comentarios aleatorios iniciales
+if (comments.length === 0) {
+  comments = [
+    { name: "Ana", message: "Excelente contenido, muy útil.", likes: 0 },
+    { name: "Luis", message: "Aprender con práctica es lo mejor.", likes: 0 },
+    { name: "María", message: "Gracias por compartir tus conocimientos.", likes: 0 }
   ];
-  randoms.forEach(c => mostrarComentario(c));
-  localStorage.setItem("comentarios", JSON.stringify(randoms));
+  saveComments();
 }
+
+function saveComments() {
+  localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments() {
+  commentsContainer.innerHTML = '';
+  comments.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'comment';
+    div.innerHTML = `
+      <h3>${c.name}</h3>
+      <p>${c.message}</p>
+      <button class="like-btn" onclick="likeComment(${i})">👍 Me gusta (${c.likes})</button>
+      <button onclick="deleteComment(${i})">🗑 Borrar</button>
+    `;
+    commentsContainer.appendChild(div);
+  });
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (name.length < 3) {
+    formError.textContent = "El nombre debe tener al menos 3 caracteres.";
+    return;
+  }
+
+  if (message.length > 200) {
+    formError.textContent = "El mensaje no puede superar las 200 palabras.";
+    return;
+  }
+
+  comments.push({ name, message, likes: 0 });
+  saveComments();
+  loadComments();
+  form.reset();
+  formError.textContent = '';
+});
+
+function deleteComment(index) {
+  comments.splice(index, 1);
+  saveComments();
+  loadComments();
+}
+
+deleteAllBtn.addEventListener('click', () => {
+  comments = [];
+  saveComments();
+  loadComments();
+});
+
+window.likeComment = function(index) {
+  comments[index].likes++;
+  saveComments();
+  loadComments();
+};
+
+loadComments();

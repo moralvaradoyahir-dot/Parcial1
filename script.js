@@ -4,7 +4,6 @@ const loginContainer = document.getElementById('login-container');
 const blogContainer = document.getElementById('blog-container');
 const loginError = document.getElementById('login-error');
 
-fuction loadPasswor(script) 
 const correctPassword = "1234";
 
 loginBtn.addEventListener('click', () => {

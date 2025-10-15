@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!-- Define el documento como HTML5 -->
+<html lang="es"> <!-- Idioma principal: español -->
+<head> <!-- Metadatos y recursos -->
+  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsive -->
+  <title>Mini Blog con Comentarios</title> <!-- Título que aparece en la pestaña -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body> <!-- Inicio del cuerpo visible -->
+
+  <!-- ===== Modal de login (bloquea el acceso hasta que se autentique) ===== -->
+  <div id="loginModal" class="modal"> <!-- Contenedor del modal -->
+    <div class="modal-content"> <!-- Caja centrada del modal -->
+      <h2>Acceso al Blog</h2> <!-- Título del modal -->
+      <form id="loginForm"> <!-- Formulario de login -->
+        <input id="passwordInput" type="password" placeholder="Introduce la contraseña" required> <!-- Campo contraseña -->
+        <button type="submit">Entrar</button> <!-- Botón para enviar -->
+        <p id="loginError" class="error" aria-live="polite"></p> <!-- Espacio para mostrar error -->
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Header del sitio ===== -->
+  <header> <!-- Encabezado principal -->
+    <h1>Mi Blog de Programación</h1> <!-- Título del blog -->
+  </header>
+
+  <!-- ===== Contenido principal ===== -->
+  <main> <!-- Contenedor principal -->
+    <article> <!-- Artículo de presentación -->
+      <h2>Bienvenidos</h2> <!-- Subtítulo -->
+      <p>Este es un blog demostrativo para la clase de Programación Web. Aquí podrán dejar sus comentarios, subir imágenes y dar 'me gusta'.</p> <!-- Texto introductorio -->
+    </article>
+
+    <!-- ===== Formulario para agregar comentarios ===== -->
+    <section class="comment-form"> <!-- Sección del formulario -->
+      <h3>Agregar un comentario</h3> <!-- Subtítulo del formulario -->
+      <input id="nombre" type="text" placeholder="Tu nombre (mínimo 3 caracteres)" required> <!-- Input para el nombre -->
+      <textarea id="mensaje" rows="3" placeholder="Escribe tu comentario (máx 200 caracteres)" required></textarea> <!-- Area para el mensaje -->
+      <input id="imagen" type="file" accept="image/*"> <!-- Selector de imagen -->
+      <div id="preview" aria-live="polite"></div> <!-- Vista previa de la imagen seleccionada -->
+      <div class="form-actions"> <!-- Contenedor para botones -->
+        <button id="publicarBtn" type="button">Publicar comentario</button> <!-- Botón para publicar -->
+        <button id="clearAllBtn" type="button" class="btn-delete">Borrar todos los comentarios</button> <!-- Botón para borrar todos -->
+      </div>
+      <p id="formError" class="error" aria-live="polite"></p> <!-- Mensajes de validación -->
+    </section>
+
+    <!-- ===== Sección donde se mostrarán los comentarios ===== -->
+    <section id="comentarios"> <!-- Contenedor de comentarios -->
+      <h3>Comentarios</h3> <!-- Título de la sección -->
+      <div id="commentsList"></div> <!-- Lista real de comentarios (se llena con JS) -->
+    </section>
+  </main>
+
+  <!-- Enlace al script principal -->
+  <script src="js/script.js"></script> <!-- Archivo JS con la lógica -->
+</body>
+</html>

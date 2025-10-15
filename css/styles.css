@@ -1,0 +1,149 @@
+/* ===== Estilos generales ===== */
+body { /* Estilo del cuerpo entero */
+  font-family: Arial, sans-serif; /* Fuente principal */
+  margin: 0; /* Quitar margen por defecto */
+  padding: 0; /* Quitar padding por defecto */
+  background: #f4f4f9; /* Color de fondo claro */
+}
+
+/* ===== Header ===== */
+header { /* Estilo del encabezado */
+  background: #333; /* Fondo oscuro */
+  color: white; /* Texto en blanco */
+  text-align: center; /* Centrar texto */
+  padding: 1rem; /* Espacio interno */
+}
+
+/* ===== Contenido principal ===== */
+main { /* Caja principal centrada */
+  max-width: 900px; /* Ancho máximo */
+  margin: 20px auto; /* Centrado horizontal y espacio vertical */
+  background: white; /* Fondo blanco */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Sombra suave */
+}
+
+/* ===== Formulario de comentarios ===== */
+.comment-form { /* Contenedor del formulario */
+  margin-bottom: 20px; /* Separación inferior */
+}
+
+.comment-form input,
+.comment-form textarea,
+.comment-form button { /* Estilos compartidos para inputs y botones */
+  width: 100%; /* Ocupan todo el ancho */
+  margin: 6px 0; /* Margen vertical */
+  padding: 10px; /* Relleno interno */
+  border-radius: 6px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde gris claro */
+  box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+/* Acciones del formulario lado a lado en pantallas anchas */
+.form-actions { /* Contenedor de botones */
+  display: flex; /* Flexbox para botones */
+  gap: 10px; /* Espacio entre botones */
+  margin-top: 8px; /* Separación superior */
+}
+
+.form-actions button { /* Botones dentro de form-actions */
+  flex: 1; /* Cada botón toma espacio igual */
+}
+
+/* Botón principal */
+#publicarBtn { /* Estilo del botón publicar */
+  background: #333; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor mano */
+}
+
+/* Botón borrar todos */
+.btn-delete { /* Estilo del botón borrar */
+  background: darkred; /* Rojo oscuro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor mano */
+}
+
+/* Hover para botones */
+#publicarBtn:hover { background: #555; } /* Hover publicar */
+.btn-delete:hover { background: red; } /* Hover borrar */
+
+/* Vista previa de imagen */
+#preview img { /* Imagen dentro del preview */
+  max-width: 180px; /* Tamaño máximo */
+  display: block; /* Mostrar como bloque */
+  margin-top: 8px; /* Separación superior */
+  border-radius: 6px; /* Bordes redondeados */
+  border: 1px solid #ddd; /* Borde sutil */
+}
+
+/* ===== Lista de comentarios ===== */
+.comment { /* Tarjeta de cada comentario */
+  border-bottom: 1px solid #eee; /* Línea separadora */
+  padding: 12px 0; /* Espaciado vertical */
+}
+
+.comment strong { /* Nombre del autor */
+  display: block; /* Nombre en línea separada */
+  margin-bottom: 6px; /* Separación inferior */
+}
+
+.comment p { /* Mensaje del comentario */
+  margin: 6px 0; /* Márgenes verticales */
+}
+
+.comment small { /* Fecha del comentario */
+  color: gray; /* Color gris para la fecha */
+  display: block; /* Mostrar en nueva línea */
+  margin-top: 6px; /* Separación superior */
+}
+
+/* Acciones de cada comentario (like, borrar) */
+.comment .actions { /* Contenedor de acciones */
+  margin-top: 10px; /* Separación superior */
+  display: flex; /* Mostrar botones en fila */
+  gap: 8px; /* Espacio entre botones */
+}
+
+.comment button { /* Botones dentro del comentario */
+  padding: 6px 10px; /* Relleno */
+  border-radius: 6px; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor mano */
+}
+
+/* Botón like */
+.comment button.like { background: #008CBA; color: white; }
+
+/* Botón borrar comentario */
+.comment button.delete { background: darkred; color: white; }
+
+/* ===== Modal de login ===== */
+.modal { /* Fondo oscuro que cubre toda la pantalla */
+  position: fixed; /* Fijo en pantalla */
+  top: 0; left: 0; right: 0; bottom: 0; /* Cubrir toda el área */
+  background: rgba(0,0,0,0.5); /* Transparencia oscura */
+  display: flex; /* Flex para centrar contenido */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  z-index: 1000; /* Encima de todo */
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: white; /* Fondo blanco */
+  padding: 20px; /* Espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  width: 90%; /* Ancho flexible en mobile */
+  max-width: 400px; /* Ancho máximo */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15); /* Sombra pronunciada */
+}
+
+/* Clase para ocultar elementos (usar cuando se autentique) */
+.hidden { display: none !important; } /* Oculta con prioridad */
+
+/* Estilos para mensajes de error */
+.error { color: darkred; margin-top: 6px; font-size: 0.95rem; }

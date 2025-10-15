@@ -1,7 +1,7 @@
 /* ===== js/script.js - Lógica del blog con comentarios y login ===== */
 
 /* --------------- CONFIGURACIÓN --------------- */
-const PASSWORD = "1234"; // Contraseña fija (puedes cambiarla para la clase)
+const PASSWORD = "123456789"; // Contraseña fija (puedes cambiarla para la clase)
 const STORAGE_KEY = "comentarios"; // Clave en localStorage donde guardamos los comentarios
 
 /* Variable para guardar la imagen en base64 mientras el usuario la previsualiza */

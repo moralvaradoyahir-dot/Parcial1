@@ -1,20 +1,11 @@
-const passwordInput = document.getElementById('password');
-const loginBtn = document.getElementById('login-btn');
-const loginContainer = document.getElementById('login-container');
-const blogContainer = document.getElementById('blog-container');
-const loginError = document.getElementById('login-error');
+/* ===== js/script.js - Lógica del blog con comentarios y login ===== */
 
-const correctPassword = "1234";
+/* --------------- CONFIGURACIÓN --------------- */
+const PASSWORD = "1234"; // Contraseña fija (puedes cambiarla para la clase)
+const STORAGE_KEY = "comentarios"; // Clave en localStorage donde guardamos los comentarios
 
-loginBtn.addEventListener('click', () => {
-  if (passwordInput.value === correctPassword) {
-    loginContainer.classList.add('hidden');
-    blogContainer.classList.remove('hidden');
-    loadComments();
-  } else {
-    loginError.textContent = "Contraseña incorrecta.";
-  }
-});
+/* Variable para guardar la imagen en base64 mientras el usuario la previsualiza */
+let currentImageData = null;
 
 // Formulario de comentarios
 const form = document.getElementById('comment-form');

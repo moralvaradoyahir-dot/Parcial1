@@ -116,7 +116,7 @@ main { /* Caja principal centrada */
 }
 
 /* Botón like */
-.comment button.like { background: #008CBA; color: white; }
+.comment button.like { background: #FFOO; color: white; }
 
 /* Botón borrar comentario */
 .comment button.delete { background: darkred; color: white; }
@@ -147,3 +147,4 @@ main { /* Caja principal centrada */
 
 /* Estilos para mensajes de error */
 .error { color: darkred; margin-top: 6px; font-size: 0.95rem; }
+

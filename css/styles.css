@@ -119,7 +119,7 @@ main { /* Caja principal centrada */
 .comment button.like { background: #FFOO; color: white; }
 
 /* Botón borrar comentario */
-.comment button.delete { background: darkred; color: white; }
+.comment button.delete { background: darkblue; color: white; }
 
 /* ===== Modal de login ===== */
 .modal { /* Fondo oscuro que cubre toda la pantalla */
@@ -147,4 +147,5 @@ main { /* Caja principal centrada */
 
 /* Estilos para mensajes de error */
 .error { color: darkred; margin-top: 6px; font-size: 0.95rem; }
+
 

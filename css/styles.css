@@ -1,151 +1,244 @@
-/* ===== Estilos generales ===== */
-body { /* Estilo del cuerpo entero */
-  font-family: Arial, sans-serif; /* Fuente principal */
-  margin: 0; /* Quitar margen por defecto */
-  padding: 0; /* Quitar padding por defecto */
-  background: #f4f4f9; /* Color de fondo claro */
+/* 🌿 === ESTILOS MODERNOS PARA BLOG INTERACTIVO === */
+
+/* ===== RESET GENERAL ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* ===== Header ===== */
-header { /* Estilo del encabezado */
-  background: #333; /* Fondo oscuro */
-  color: white; /* Texto en blanco */
-  text-align: center; /* Centrar texto */
-  padding: 1rem; /* Espacio interno */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== Contenido principal ===== */
-main { /* Caja principal centrada */
-  max-width: 900px; /* Ancho máximo */
-  margin: 20px auto; /* Centrado horizontal y espacio vertical */
-  background: white; /* Fondo blanco */
-  padding: 20px; /* Espacio interno */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Sombra suave */
+/* ===== ENCABEZADO ===== */
+header {
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Formulario de comentarios ===== */
-.comment-form { /* Contenedor del formulario */
-  margin-bottom: 20px; /* Separación inferior */
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+main {
+  flex: 1;
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+/* ===== FORMULARIO ===== */
+.comment-form {
+  background: #f9fbfc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  transition: transform 0.2s ease;
+}
+
+.comment-form:hover {
+  transform: scale(1.01);
 }
 
 .comment-form input,
-.comment-form textarea,
-.comment-form button { /* Estilos compartidos para inputs y botones */
-  width: 100%; /* Ocupan todo el ancho */
-  margin: 6px 0; /* Margen vertical */
-  padding: 10px; /* Relleno interno */
-  border-radius: 6px; /* Bordes redondeados */
-  border: 1px solid #ccc; /* Borde gris claro */
-  box-sizing: border-box; /* Incluir padding en el ancho */
+.comment-form textarea {
+  width: 100%;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-/* Acciones del formulario lado a lado en pantallas anchas */
-.form-actions { /* Contenedor de botones */
-  display: flex; /* Flexbox para botones */
-  gap: 10px; /* Espacio entre botones */
-  margin-top: 8px; /* Separación superior */
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: #00b4d8;
 }
 
-.form-actions button { /* Botones dentro de form-actions */
-  flex: 1; /* Cada botón toma espacio igual */
+/* Botones del formulario */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Botón principal */
-#publicarBtn { /* Estilo del botón publicar */
-  background: #333; /* Fondo oscuro */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Cursor mano */
+.form-actions button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Botón borrar todos */
-.btn-delete { /* Estilo del botón borrar */
-  background: darkred; /* Rojo oscuro */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Cursor mano */
+#publicarBtn {
+  background: #0077b6;
 }
 
-/* Hover para botones */
-#publicarBtn:hover { background: #555; } /* Hover publicar */
-.btn-delete:hover { background: red; } /* Hover borrar */
-
-/* Vista previa de imagen */
-#preview img { /* Imagen dentro del preview */
-  max-width: 180px; /* Tamaño máximo */
-  display: block; /* Mostrar como bloque */
-  margin-top: 8px; /* Separación superior */
-  border-radius: 6px; /* Bordes redondeados */
-  border: 1px solid #ddd; /* Borde sutil */
+#publicarBtn:hover {
+  background: #0096c7;
+  transform: translateY(-2px);
 }
 
-/* ===== Lista de comentarios ===== */
-.comment { /* Tarjeta de cada comentario */
-  border-bottom: 1px solid #eee; /* Línea separadora */
-  padding: 12px 0; /* Espaciado vertical */
+.btn-delete {
+  background: #d62828;
 }
 
-.comment strong { /* Nombre del autor */
-  display: block; /* Nombre en línea separada */
-  margin-bottom: 6px; /* Separación inferior */
+.btn-delete:hover {
+  background: #ef233c;
+  transform: translateY(-2px);
 }
 
-.comment p { /* Mensaje del comentario */
-  margin: 6px 0; /* Márgenes verticales */
+/* ===== LISTA DE COMENTARIOS ===== */
+.comment {
+  background: #f6f9fc;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.4s ease;
 }
 
-.comment small { /* Fecha del comentario */
-  color: gray; /* Color gris para la fecha */
-  display: block; /* Mostrar en nueva línea */
-  margin-top: 6px; /* Separación superior */
+.comment strong {
+  color: #0077b6;
+  font-size: 1.1rem;
 }
 
-/* Acciones de cada comentario (like, borrar) */
-.comment .actions { /* Contenedor de acciones */
-  margin-top: 10px; /* Separación superior */
-  display: flex; /* Mostrar botones en fila */
-  gap: 8px; /* Espacio entre botones */
+.comment p {
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
-.comment button { /* Botones dentro del comentario */
-  padding: 6px 10px; /* Relleno */
-  border-radius: 6px; /* Bordes redondeados */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Cursor mano */
+.comment small {
+  color: #666;
+  font-size: 0.9rem;
 }
 
-/* Botón like */
-.comment button.like { background: #FFOO; color: white; }
-
-/* Botón borrar comentario */
-.comment button.delete { background: darkblue; color: white; }
-
-/* ===== Modal de login ===== */
-.modal { /* Fondo oscuro que cubre toda la pantalla */
-  position: fixed; /* Fijo en pantalla */
-  top: 0; left: 0; right: 0; bottom: 0; /* Cubrir toda el área */
-  background: rgba(0,0,0,0.5); /* Transparencia oscura */
-  display: flex; /* Flex para centrar contenido */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: center; /* Centrar horizontalmente */
-  z-index: 1000; /* Encima de todo */
+/* Botones de acción (like y borrar) */
+.comment .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-/* Contenido del modal */
+.comment button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.comment button.like {
+  background: #ff6b6b;
+}
+
+.comment button.like:hover {
+  background: #fa5252;
+  transform: scale(1.05);
+}
+
+.comment button.delete {
+  background: #023e8a;
+}
+
+.comment button.delete:hover {
+  background: #0077b6;
+  transform: scale(1.05);
+}
+
+/* ===== MODAL LOGIN ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .modal-content {
-  background: white; /* Fondo blanco */
-  padding: 20px; /* Espacio interno */
-  border-radius: 8px; /* Bordes redondeados */
-  width: 90%; /* Ancho flexible en mobile */
-  max-width: 400px; /* Ancho máximo */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15); /* Sombra pronunciada */
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: zoomIn 0.5s ease;
 }
 
-/* Clase para ocultar elementos (usar cuando se autentique) */
-.hidden { display: none !important; } /* Oculta con prioridad */
+.modal-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  outline: none;
+}
 
-/* Estilos para mensajes de error */
-.error { color: darkred; margin-top: 6px; font-size: 0.95rem; }
+.modal-content button {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
 
+.modal-content button:hover {
+  background: #0096c7;
+}
 
+.error {
+  color: #d62828;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
